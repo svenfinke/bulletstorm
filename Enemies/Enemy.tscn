@@ -1,20 +1,19 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Sprites/32x32/Orcs/Orc Villager 01 32.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Square.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Enemy.gd" type="Script" id=2]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 16.0
-height = 2.0
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="Enemy" type="Sprite" parent="."]
+modulate = Color( 0.729412, 0.101961, 0.101961, 1 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
-hframes = 8
-vframes = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

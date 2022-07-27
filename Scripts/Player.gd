@@ -20,13 +20,6 @@ func _physics_process(delta):
 		velocity.y -= 1.0
 		
 	velocity = velocity.normalized()
-	
-	if velocity == Vector2.ZERO:
-		$AnimationTree.get("parameters/playback").travel("Idle")
-	else:
-		$AnimationTree.set("parameters/Walk/blend_position", velocity)
-		$AnimationTree.set("parameters/Idle/blend_position", velocity)
-		$AnimationTree.get("parameters/playback").travel("Walk")
 
 	move_and_slide(velocity * speed)
 
