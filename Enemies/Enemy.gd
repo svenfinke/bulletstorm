@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var Exp = preload("res://Objects/Exp.tscn")
+
 var velocity = Vector2.ZERO
 var speed = 50
 var health = 3
@@ -24,6 +26,7 @@ func _physics_process(delta):
 func hit():
 	health-=1;
 	if health <= 0:
+		Global.instance_node(Exp, global_position, Global.DefaultParent)
 		queue_free()
 
 

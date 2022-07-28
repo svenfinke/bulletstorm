@@ -3,7 +3,7 @@ extends KinematicBody2D
 var velocity = Vector2(1,0)
 var speed = 250
 
-var look_once = true
+export var look_once = true
 
 func _physics_process(delta):
 	if look_once:

@@ -25,6 +25,8 @@ current = true
 environment = SubResource( 1 )
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 0.2
 autostart = true
 
+[connection signal="tree_exiting" from="Knight" to="." method="_on_Knight_tree_exiting"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
