@@ -4,6 +4,9 @@ var Enemy01 = preload("res://Enemies/Enemy.tscn")
 
 func _ready():
 	Global.DefaultParent = self
+	
+func _process(delta):
+	$CanvasLayer/Control/Exp.value = Global.Exp
 
 func _on_EnemySpawnTimer_timeout():
 	

@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var FloatingText = preload("res://Objects/FloatingText.tscn")
+
 export (int) var speed = 80.0
 export (PackedScene) var Gun
 export (int) var health = 5
@@ -38,6 +40,11 @@ func _on_ShootTimer_timeout():
 
 func hit():
 	health -= 1
+	var text = FloatingText.instance()
+	text.amount = 1
+	text.global_position = global_position
+	Global.DefaultParent.add_child(text)
+	
 	if health <= 0:
 		Global.Player = null
 		queue_free()

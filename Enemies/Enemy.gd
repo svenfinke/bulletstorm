@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
 var Exp = preload("res://Objects/Exp.tscn")
+var FloatingText = preload("res://Objects/FloatingText.tscn")
 
 var velocity = Vector2.ZERO
 var speed = 50
-var health = 3
+var health = 10
 var canHit = true
 
 func _physics_process(delta):
@@ -24,7 +25,11 @@ func _physics_process(delta):
 			collider.collider.hit()
 
 func hit():
-	health-=1;
+	health-=4;
+	var text = FloatingText.instance()
+	text.amount = 4
+	text.global_position = global_position
+	Global.DefaultParent.add_child(text)
 	if health <= 0:
 		Global.instance_node(Exp, global_position, Global.DefaultParent)
 		queue_free()
