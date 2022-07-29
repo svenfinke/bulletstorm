@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Gun",
+"language": "GDScript",
+"path": "res://Entities/Weapons/Gun.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Entities/Characters/Player.gd"
+} ]
+_global_script_class_icons={
+"Gun": "",
+"Player": ""
+}
+
 [application]
 
 config/name="Bulletstorm"

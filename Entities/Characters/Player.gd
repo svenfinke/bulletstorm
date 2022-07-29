@@ -1,17 +1,19 @@
 extends KinematicBody2D
+class_name Player
 
-var FloatingText = preload("res://Objects/FloatingText.tscn")
+var FloatingText = preload("res://Entities/Objects/FloatingText.tscn")
+var Gun = preload("res://Entities/Weapons/Gun.tscn")
 
-export (int) var speed = 80.0
-export (PackedScene) var Gun
-export (int) var health = 5
+var speed : float = 80.0
+var health : int = 5
+var maxHealth : int = 5
 
 var closestEnemy = null
 
 func _ready():
 	Global.Player = self
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var velocity = Vector2.ZERO
 	
 	if Input.is_action_pressed("ui_right"):

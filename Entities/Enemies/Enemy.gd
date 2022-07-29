@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-var Exp = preload("res://Objects/Exp.tscn")
-var FloatingText = preload("res://Objects/FloatingText.tscn")
+var Exp = preload("res://Entities/Objects/Exp.tscn")
+var FloatingText = preload("res://Entities/Objects/FloatingText.tscn")
 
 var velocity = Vector2.ZERO
 var speed = 50

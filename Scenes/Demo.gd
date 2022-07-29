@@ -1,22 +1,20 @@
 extends Node2D
 
-var Enemy01 = preload("res://Enemies/Enemy.tscn")
+var Enemy01 = preload("res://Entities/Enemies/Enemy.tscn")
 
 func _ready():
 	Global.DefaultParent = self
-	
-func _process(delta):
-	$CanvasLayer/Control/Exp.value = Global.Exp
+	Global.Player = $Player
 
 func _on_EnemySpawnTimer_timeout():
 	
 	var screenWidth = get_viewport_rect().size.x
 	var screenHeight = get_viewport_rect().size.y
 	
-	var left = $Knight.global_position.x - (screenWidth / 2)
-	var right = $Knight.global_position.x + (screenWidth / 2)
-	var top = $Knight.global_position.y - (screenHeight / 2)
-	var down = $Knight.global_position.y + (screenHeight / 2)
+	var left = $Player.global_position.x - (screenWidth / 2)
+	var right = $Player.global_position.x + (screenWidth / 2)
+	var top = $Player.global_position.y - (screenHeight / 2)
+	var down = $Player.global_position.y + (screenHeight / 2)
 	
 	var posX = rand_range(left - 100, right + 100)
 	var posY = rand_range(top - 100, down + 100)

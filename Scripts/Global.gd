@@ -1,6 +1,6 @@
 extends Node
 
-var Player
+var Player = null
 var Exp = 0
 var DefaultParent = null
 

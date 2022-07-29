@@ -1,6 +1,6 @@
 extends Area2D
 
-var FloatingText = preload("res://Objects/FloatingText.tscn")
+var FloatingText = preload("res://Entities/Objects/FloatingText.tscn")
 
 export (int) var amount = 5
 

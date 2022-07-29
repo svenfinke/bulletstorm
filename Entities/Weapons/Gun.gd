@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Gun
 
 var velocity = Vector2(1,0)
 var speed = 250
