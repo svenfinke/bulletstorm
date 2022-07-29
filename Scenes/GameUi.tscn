@@ -55,3 +55,13 @@ theme = ExtResource( 1 )
 custom_styles/fg = SubResource( 3 )
 custom_styles/bg = SubResource( 4 )
 value = 35.0
+
+[node name="CurrentLevel" type="Label" parent="."]
+margin_left = 726.0
+margin_top = 56.0
+margin_right = 766.0
+margin_bottom = 72.0
+theme = ExtResource( 1 )
+text = "1"
+align = 1
+valign = 1

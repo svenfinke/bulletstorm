@@ -5,3 +5,5 @@ func _process(delta):
 	$HpBar.max_value = Global.Player.maxHealth
 	$HpBar.value = Global.Player.health
 	$ExpBar.value = Global.Exp
+	$ExpBar.max_value = Global.Player.expToNextLevel
+	$CurrentLevel.text = String(Global.Player.level)

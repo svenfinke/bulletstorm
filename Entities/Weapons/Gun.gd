@@ -13,7 +13,7 @@ func _physics_process(delta):
 	
 	var collider = move_and_collide(velocity.rotated(rotation) * speed * delta)
 	if collider:
-		collider.get_collider().hit()
+		collider.get_collider().hit(4 * Global.Player.level)
 		queue_free()
 
 func _on_VisibilityNotifier2D_screen_exited():

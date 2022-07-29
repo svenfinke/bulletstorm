@@ -3,15 +3,22 @@ class_name Player
 
 var FloatingText = preload("res://Entities/Objects/FloatingText.tscn")
 var Gun = preload("res://Entities/Weapons/Gun.tscn")
+var LevelUp = preload("res://Entities/Dialogues/LevelUp.tscn")
 
 var speed : float = 80.0
 var health : int = 5
 var maxHealth : int = 5
+var expToNextLevel : int = 20
+var level : int = 1
 
 var closestEnemy = null
 
 func _ready():
 	Global.Player = self
+	
+func _process(delta):
+	if Global.Exp >= expToNextLevel:
+		level_up()
 
 func _physics_process(_delta):
 	var velocity = Vector2.ZERO
@@ -62,3 +69,9 @@ func get_closest_enemy():
 				minDistance = distance
 				closestBody = body
 	return closestBody
+
+func level_up():
+	Global.instance_node(LevelUp, global_position, Global.DefaultParent)
+	expToNextLevel += expToNextLevel * 0.3
+	Global.Exp = 0
+	level += 1

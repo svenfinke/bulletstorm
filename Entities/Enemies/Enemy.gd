@@ -24,10 +24,10 @@ func _physics_process(delta):
 			$HitTimer.start()
 			collider.collider.hit()
 
-func hit():
-	health-=4;
+func hit(dmg:int):
+	health-=dmg;
 	var text = FloatingText.instance()
-	text.amount = 4
+	text.amount = dmg
 	text.global_position = global_position
 	Global.DefaultParent.add_child(text)
 	if health <= 0:
