@@ -1,10 +1,10 @@
 extends Position2D
 
-export (int) var amount = 0
+export (String) var text = "0"
 export (Color) var textColor = Color("eb0606")
 
 func _ready():
-	$Label.text = String(amount)
+	$Label.text = text
 	$Label.set("custom_colors/font_color", textColor)
 	
 	$Tween.interpolate_property(self, 'scale', scale, Vector2(1,1), 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)

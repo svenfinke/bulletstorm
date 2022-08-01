@@ -5,18 +5,28 @@ var FloatingText = preload("res://Entities/Objects/FloatingText.tscn")
 var Gun = preload("res://Entities/Weapons/Gun.tscn")
 var LevelUp = preload("res://Entities/Dialogues/LevelUp.tscn")
 
-var speed : float = 80.0
-var health : int = 5
+const speed : int = 80
+
+# Attributes
 var maxHealth : int = 5
+var health : int = 5
+var currentExp : int = 0
 var expToNextLevel : int = 20
 var level : int = 1
+var armor : int = 0
 
-var closestEnemy = null
+# Modifiers
+var attackPowerMod : float = 1.0
+var attackSpeedMod : float = 1.0
+var armorMod : float = 1.0
+var movementSpeedMod : float = 1.0
+
+var _closestEnemy = null
 
 func _ready():
 	Global.Player = self
 	
-func _process(delta):
+func _process(_delta):
 	if Global.Exp >= expToNextLevel:
 		level_up()
 
@@ -34,44 +44,30 @@ func _physics_process(_delta):
 		
 	velocity = velocity.normalized()
 
-	move_and_slide(velocity * speed)
+	move_and_slide(velocity * speed * movementSpeedMod)
 
-func shoot():
-	var enemy = get_closest_enemy()
+func _on_ShootTimer_timeout():
+	shoot()
+
+func shoot() -> void:
+	var enemy = Global.get_closest_body(self, $AreaOfSight)
 	
 	if enemy:
 		var gun = Global.instance_node(Gun, global_position, Global.DefaultParent)
 		gun.look_once = false
 		gun.look_at(enemy.global_position)
 
-func _on_ShootTimer_timeout():
-	shoot()
-
-func hit():
-	health -= 1
-	var text = FloatingText.instance()
-	text.amount = 1
-	text.global_position = global_position
-	Global.DefaultParent.add_child(text)
-	
-	if health <= 0:
-		Global.Player = null
-		queue_free()
-
-func get_closest_enemy():
-	var bodies = $AreaOfSight.get_overlapping_bodies()
-	var closestBody = null
-	if bodies.size() > 0:
-		var minDistance = 9999.99;
-		for body in bodies:
-			var distance = global_position.distance_to(body.global_position)
-			if distance < minDistance:
-				minDistance = distance
-				closestBody = body
-	return closestBody
-
-func level_up():
+func level_up() -> void:
 	Global.instance_node(LevelUp, global_position, Global.DefaultParent)
 	expToNextLevel += expToNextLevel * 0.3
 	Global.Exp = 0
 	level += 1
+
+func get_hit_by(hitter: Node, damage: int) -> void:
+	var dmg : int = damage - (armor * armorMod)
+	health -= dmg
+	Global.show_text(String(dmg), global_position, Global.DefaultParent)
+	
+	if health <= 0:
+		Global.Player = null
+		queue_free()

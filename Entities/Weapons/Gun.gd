@@ -12,8 +12,8 @@ func _physics_process(delta):
 		look_once = false
 	
 	var collider = move_and_collide(velocity.rotated(rotation) * speed * delta)
-	if collider:
-		collider.get_collider().hit(4 * Global.Player.level)
+	if collider && collider.get_collider().has_method('get_hit_by'):
+		collider.get_collider().get_hit_by(self, 4 * Global.Player.level)
 		queue_free()
 
 func _on_VisibilityNotifier2D_screen_exited():
