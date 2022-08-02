@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/water_blast_projectile_spell_03.wav-de21051376963e1d05e8bfbeb348465e.sample"
+
+[deps]
+
+source_file="res://Sounds/water_blast_projectile_spell_03.wav"
+dest_files=[ "res://.import/water_blast_projectile_spell_03.wav-de21051376963e1d05e8bfbeb348465e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

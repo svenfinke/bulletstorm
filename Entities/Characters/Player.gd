@@ -36,6 +36,9 @@ func _process(_delta):
 func _physics_process(_delta):
 	var velocity = Vector2.ZERO
 	
+	if Global.Pause:
+		return
+	
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1.0
 	if Input.is_action_pressed("ui_left"):
@@ -58,7 +61,8 @@ func _physics_process(_delta):
 	move_and_slide(velocity * speed * movementSpeedMod)
 
 func _on_ShootTimer_timeout():
-	shoot()
+	if !Global.Pause:
+		shoot()
 
 func shoot() -> void:
 	var enemy = Global.get_closest_body(self, $AreaOfSight)

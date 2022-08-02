@@ -7,6 +7,8 @@ func _ready():
 	Global.Player = $Player
 
 func _on_EnemySpawnTimer_timeout():
+	if Global.Pause:
+		return
 	
 	var screenWidth = get_viewport_rect().size.x
 	var screenHeight = get_viewport_rect().size.y
@@ -28,3 +30,6 @@ func _on_EnemySpawnTimer_timeout():
 
 func _on_Knight_tree_exiting():
 	get_tree().change_scene("res://Scenes/Dead.tscn")
+
+func _on_BackgroundLoop_finished():
+	$BackgroundLoop.play()

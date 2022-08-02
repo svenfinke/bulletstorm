@@ -7,6 +7,9 @@ var speed = 250
 export var look_once = true
 
 func _physics_process(delta):
+	if Global.Pause:
+		return
+		
 	if look_once:
 		look_at(get_global_mouse_position())
 		look_once = false

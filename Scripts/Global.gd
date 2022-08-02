@@ -2,9 +2,14 @@ extends Node
 
 var FloatingText = load("res://Entities/Objects/FloatingText.tscn")
 
-var Player = null
-var Exp = 0
-var DefaultParent = null
+var Player : Node = null
+var Exp : int = 0
+var DefaultParent : Node = null
+var Pause : bool = false
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_select"):
+		Pause = !Pause
 
 func instance_node(scene: PackedScene, location: Vector2, parent: Node) -> Node:
 	if !parent:

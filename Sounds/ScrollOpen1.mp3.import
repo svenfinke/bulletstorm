@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ScrollOpen1.mp3-c61f3442a5cd9485f3a2cc10fa0120f8.mp3str"
+
+[deps]
+
+source_file="res://Sounds/ScrollOpen1.mp3"
+dest_files=[ "res://.import/ScrollOpen1.mp3-c61f3442a5cd9485f3a2cc10fa0120f8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
