@@ -1,6 +1,6 @@
 extends Node
 
-var FloatingText = preload("res://Entities/Objects/FloatingText.tscn")
+var FloatingText = load("res://Entities/Objects/FloatingText.tscn")
 
 var Player = null
 var Exp = 0

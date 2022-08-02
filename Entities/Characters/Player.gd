@@ -5,6 +5,8 @@ var FloatingText = preload("res://Entities/Objects/FloatingText.tscn")
 var Gun = preload("res://Entities/Weapons/Gun.tscn")
 var LevelUp = preload("res://Entities/Dialogues/LevelUp.tscn")
 
+onready var  animation_mode = $AnimationTree.get("parameters/playback")
+
 const speed : int = 80
 
 # Attributes
@@ -22,6 +24,7 @@ var armorMod : float = 1.0
 var movementSpeedMod : float = 1.0
 
 var _closestEnemy = null
+var lastVelocity = Vector2.ZERO
 
 func _ready():
 	Global.Player = self
@@ -43,6 +46,14 @@ func _physics_process(_delta):
 		velocity.y -= 1.0
 		
 	velocity = velocity.normalized()
+	if velocity != Vector2.ZERO:
+		lastVelocity = velocity
+		animation_mode.travel("Walk")
+	else:
+		animation_mode.travel("Idle")
+	
+	$AnimationTree.set('parameters/Walk/blend_position', lastVelocity)
+	$AnimationTree.set('parameters/Idle/blend_position', lastVelocity)
 
 	move_and_slide(velocity * speed * movementSpeedMod)
 
