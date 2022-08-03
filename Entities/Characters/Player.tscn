@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/Circle.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 322.751
+radius = 110.887
 
 [sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0, 0.537056, 1 )

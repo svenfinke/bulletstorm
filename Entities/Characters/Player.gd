@@ -23,7 +23,6 @@ var attackSpeedMod : float = 1.0
 var armorMod : float = 1.0
 var movementSpeedMod : float = 1.0
 
-var _closestEnemy = null
 var lastVelocity = Vector2.ZERO
 
 func _ready():
@@ -67,7 +66,7 @@ func _on_ShootTimer_timeout():
 func shoot() -> void:
 	var enemy = Global.get_closest_body(self, $AreaOfSight)
 	
-	if enemy:
+	if enemy != null:
 		var gun = Global.instance_node(Gun, global_position, Global.DefaultParent)
 		gun.look_once = false
 		gun.look_at(enemy.global_position)

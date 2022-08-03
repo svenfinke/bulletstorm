@@ -41,7 +41,7 @@ start_node = "Walk"
 [sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Enemy:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -58,7 +58,7 @@ resource_name = "Walk_Down"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Enemy:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -67,7 +67,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 36, 37, 38 ]
+"values": [ 1008, 1009, 1010 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -75,7 +75,7 @@ resource_name = "Walk_Left"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Enemy:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -84,10 +84,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ 972, 973, 974 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Enemy:scale")
+tracks/1/path = NodePath("Sprite:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -104,7 +104,7 @@ resource_name = "Walk_Right"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Enemy:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -113,10 +113,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ 972, 973, 974 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Enemy:scale")
+tracks/1/path = NodePath("Sprite:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -133,7 +133,7 @@ resource_name = "Walk_Up"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Enemy:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -142,14 +142,17 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 72, 73, 74 ]
+"values": [ 1044, 1045, 1046 ]
 }
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="Skeleton" type="KinematicBody2D"]
 collision_mask = 2
 script = ExtResource( 1 )
+speed = 35
+health = 4
 
-[node name="Enemy" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( -1, 1 )
 texture = ExtResource( 2 )
 hframes = 36
 vframes = 36

@@ -7,8 +7,8 @@ func _ready():
 	$Label.text = text
 	$Label.set("custom_colors/font_color", textColor)
 	
-	$Tween.interpolate_property(self, 'scale', scale, Vector2(1,1), 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-	$Tween.interpolate_property(self, 'scale', Vector2(1,1), Vector2(0.1,0.1), 0.7, Tween.TRANS_LINEAR, Tween.EASE_OUT, 1)
+	$Tween.interpolate_property(self, 'scale', scale, Vector2(0.6,0.6), 0.2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	$Tween.interpolate_property(self, 'scale', Vector2(0.6,0.6), Vector2(0.1,0.1), 0.7, Tween.TRANS_LINEAR, Tween.EASE_OUT, 1)
 	$Tween.start()
 
 

@@ -1,10 +1,12 @@
 extends Node2D
 
-var Enemy01 = preload("res://Entities/Enemies/Enemy.tscn")
+var enemySkeleton = preload("res://Entities/Enemies/Skeleton.tscn")
+var enemyPriest = preload("res://Entities/Enemies/Priest.tscn")
 
 func _ready():
 	Global.DefaultParent = self
 	Global.Player = $Player
+	$CanvasLayer/GameUI.visible = true
 
 func _on_EnemySpawnTimer_timeout():
 	if Global.Pause:
@@ -25,11 +27,18 @@ func _on_EnemySpawnTimer_timeout():
 		posX = rand_range(left - 100, right + 100)
 		posY = rand_range(top - 100, down + 100)
 
-	Global.instance_node(Enemy01, Vector2(posX, posY), Global.DefaultParent)
-
+	Global.instance_node(_get_random_enemy(), Vector2(posX, posY), Global.DefaultParent)
 
 func _on_Knight_tree_exiting():
 	get_tree().change_scene("res://Scenes/Dead.tscn")
 
 func _on_BackgroundLoop_finished():
 	$BackgroundLoop.play()
+
+func _get_random_enemy()->PackedScene:
+	var randomInt = rand_range(0,10)
+	
+	if randomInt <= 3:
+		return enemyPriest
+	else:
+		return enemySkeleton

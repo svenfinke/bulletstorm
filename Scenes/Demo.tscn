@@ -8,6 +8,9 @@
 [node name="Demo" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="TileMap" type="TileMap" parent="."]
+format = 1
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1026, 602 )
 
@@ -17,11 +20,13 @@ zoom = Vector2( 0.5, 0.5 )
 smoothing_enabled = true
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameUI" parent="CanvasLayer" instance=ExtResource( 3 )]
+visible = false
 
 [node name="BackgroundLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

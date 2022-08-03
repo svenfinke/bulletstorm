@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/FontOutline.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Theme.tres" type="Theme" id=2]
 [ext_resource path="res://Entities/Dialogues/LevelUp.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/points_ticker_bonus_score_reward_jingle_05.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popup"
@@ -146,4 +147,9 @@ uppercase = true
 autoplay = "Popup"
 anims/Popup = SubResource( 1 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
 [connection signal="animation_finished" from="Control/AnimationPlayer" to="Control" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="Control" method="_on_AudioStreamPlayer_finished"]

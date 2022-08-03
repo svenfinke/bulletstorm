@@ -1,17 +1,19 @@
 extends KinematicBody2D
+class_name Enemy
 
 var Exp = preload("res://Entities/Objects/Exp.tscn")
 var FloatingText = preload("res://Entities/Objects/FloatingText.tscn")
 
 onready var  animation_mode = $AnimationTree.get("parameters/playback")
 
-var velocity = Vector2.ZERO
-var speed = 50
-var health = 10
-var canHit = true
-var damage = 1
+export (int) var damage = 1
+export (int) var speed = 50
+export (int) var health = 10
+export (int) var dropExp = 10
 
+var velocity = Vector2.ZERO
 var lastVelocity = Vector2.ZERO
+var canHit = true
 
 func _physics_process(delta):
 	if Global.Player == null:
@@ -52,7 +54,7 @@ func get_hit_by(hitter: Node, hitDamage: int) -> void:
 		Global.instance_node(Exp, global_position, Global.DefaultParent)
 		$AudioStreamPlayer.play()
 		$CollisionShape2D.disabled = true
-
+		$Sprite.visible = false
 
 func _on_AudioStreamPlayer_finished():
 	queue_free()
