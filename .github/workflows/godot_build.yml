@@ -1,0 +1,6 @@
+name: Godot Build Pipeline
+on: [push]
+jobs:
+  - name: godot-ci
+    ses: abarichello/godot-ci@3.4.2
+
