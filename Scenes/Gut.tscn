@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/gut/plugin_control.gd" type="Script" id=1]
+
+[node name="Gut" type="Control"]
+margin_right = 960.0
+margin_bottom = 544.0
+rect_min_size = Vector2( 740, 250 )
+script = ExtResource( 1 )
+_run_on_load = true
+_should_maximize = true
+_show_orphans = false
+_include_subdirectories = true
+_directory1 = "res://Test"

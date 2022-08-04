@@ -1,6 +1,9 @@
 name: Godot Build Pipeline
 on: [push]
 jobs:
-  - name: godot-ci
-    ses: abarichello/godot-ci@3.4.2
-
+  GodotBuild:
+    name: GodotBuild
+    runs-on: ubuntu-latest
+    steps:
+      - name: godot-ci
+        uses: abarichello/godot-ci@3.4.2
