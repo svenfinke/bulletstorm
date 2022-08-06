@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/nature_spell_vines_tree_impact_03.wav-037b7f5b94b444d9f689319034cbf95d.sample"
+
+[deps]
+
+source_file="res://assets/sounds/nature_spell_vines_tree_impact_03.wav"
+dest_files=[ "res://.import/nature_spell_vines_tree_impact_03.wav-037b7f5b94b444d9f689319034cbf95d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

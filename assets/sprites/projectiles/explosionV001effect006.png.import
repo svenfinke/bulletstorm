@@ -1,0 +1,19 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/explosionV001effect006.png-d473cd826c5e82526e1e5fcd2b3d1fa5.res"
+group_file="res://assets/sprites/projectiles/explosion_atlas.png"
+valid=true
+[deps]
+
+
+source_file="res://assets/sprites/projectiles/explosionV001effect006.png"
+dest_files=[ "res://.import/explosionV001effect006.png-d473cd826c5e82526e1e5fcd2b3d1fa5.res" ]
+
+[params]
+
+atlas_file="res://assets/sprites/projectiles/explosion_atlas.png"
+import_mode=0
+crop_to_region=false
+trim_alpha_border_from_region=false

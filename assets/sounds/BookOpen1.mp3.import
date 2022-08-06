@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BookOpen1.mp3-8cfe9bd62170e29f219a3af431ad58f7.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/BookOpen1.mp3"
+dest_files=[ "res://.import/BookOpen1.mp3-8cfe9bd62170e29f219a3af431ad58f7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

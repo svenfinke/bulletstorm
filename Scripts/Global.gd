@@ -1,11 +1,12 @@
 extends Node
 
-var FloatingText = load("res://Entities/Objects/FloatingText.tscn")
+var FloatingText = preload("res://popups/FloatingText.tscn")
 
 var Player : Node = null
 var Exp : int = 0
 var DefaultParent : Node = null
 var Pause : bool = false
+var SoundEnabled : bool = true
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_select"):

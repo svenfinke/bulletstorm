@@ -1,12 +1,17 @@
 extends Node2D
 
-var enemySkeleton = preload("res://Entities/Enemies/Skeleton.tscn")
-var enemyPriest = preload("res://Entities/Enemies/Priest.tscn")
+var enemySkeleton = preload("res://enemies/Skeleton.tscn")
+var enemyPriest = preload("res://enemies/Priest.tscn")
+
+export(bool) var soundEnabled : bool = true
 
 func _ready():
+	Global.SoundEnabled = soundEnabled
 	Global.DefaultParent = self
 	Global.Player = $Player
 	$CanvasLayer/GameUI.visible = true
+	if soundEnabled:
+		$BackgroundLoop.play()
 
 func _on_EnemySpawnTimer_timeout():
 	if Global.Pause:
@@ -33,7 +38,8 @@ func _on_Knight_tree_exiting():
 	get_tree().change_scene("res://Scenes/Dead.tscn")
 
 func _on_BackgroundLoop_finished():
-	$BackgroundLoop.play()
+	if soundEnabled:
+		$BackgroundLoop.play()
 
 func _get_random_enemy()->PackedScene:
 	var randomInt = rand_range(0,10)

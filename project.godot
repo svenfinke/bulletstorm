@@ -9,15 +9,15 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Position2D",
+"class": "Aoe",
+"language": "GDScript",
+"path": "res://weapons/Aoe.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://Entities/Enemies/Enemy.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "Gun",
-"language": "GDScript",
-"path": "res://Entities/Weapons/Gun.gd"
+"path": "res://enemies/Enemy.gd"
 }, {
 "base": "Reference",
 "class": "GutHookScript",
@@ -32,29 +32,67 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Entities/Characters/Player.gd"
+"path": "res://characters/Player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://weapons/Projectile.gd"
 } ]
 _global_script_class_icons={
+"Aoe": "",
 "Enemy": "",
-"Gun": "",
 "GutHookScript": "",
 "GutTest": "",
-"Player": ""
+"Player": "",
+"Projectile": ""
 }
 
 [application]
 
 config/name="Bulletstorm"
-run/main_scene="res://Scenes/Demo.tscn"
+run/main_scene="res://scenes/Demo.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Scripts/Global.gd"
+Global="*res://scripts/Global.gd"
+
+[display]
+
+window/size/width=640
+window/size/height=320
+window/size/test_width=1280
+window/size/test_height=640
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/gut/plugin.cfg" )
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [input]
 
@@ -92,11 +130,21 @@ ui_click={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Detection"
+2d_physics/layer_4="Objects"
+2d_navigation/layer_1="Player"
+2d_navigation/layer_2="Enemy"
+
 [physics]
 
 common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 0, 0, 0, 1 )
+2d/snapping/use_gpu_pixel_snap=true
+environment/default_clear_color=Color( 0.0313726, 0.0156863, 0.0470588, 1 )
 environment/default_environment="res://default_env.tres"
