@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://weapons/WeaponResource.gd" type="Script" id=1]
+[ext_resource path="res://weapons/Projectile.gd" type="Script" id=2]
+[ext_resource path="res://weapons/fireball/Fireball_3.tres" type="Resource" id=3]
+[ext_resource path="res://weapons/fireball/Fireball_4.tres" type="Resource" id=4]
+[ext_resource path="res://weapons/fireball/Fireball_2.tres" type="Resource" id=5]
+[ext_resource path="res://weapons/fireball/Fireball.tscn" type="PackedScene" id=6]
+
+[resource]
+script = ExtResource( 1 )
+weaponScript = ExtResource( 2 )
+weaponScene = ExtResource( 6 )
+currentLevel = 1
+direction = 0
+pierceEnemies = false
+upgrades = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ) ]

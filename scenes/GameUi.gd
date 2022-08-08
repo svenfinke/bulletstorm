@@ -4,8 +4,7 @@ onready var HpBar : Node = $HpBar
 onready var ExpBar : Node = $ExpBar
 onready var LevelIndicator : Node = $CurrentLevelBg/CurrentLevel
 
-func _process(delta):
-	var player = Global.Player
+func _process(_delta):
 	HpBar.max_value = Global.Player.maxHealth
 	HpBar.value = Global.Player.health
 	ExpBar.value = Global.Exp

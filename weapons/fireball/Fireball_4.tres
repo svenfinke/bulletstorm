@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://weapons/WeaponUpgradeResource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+level = 4
+dmgInc = 0
+speedInc = 50
+areaInc = 0.0
+rateInc = 0

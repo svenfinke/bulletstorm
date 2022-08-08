@@ -2,11 +2,13 @@ extends KinematicBody2D
 class_name Player
 
 var FloatingText = preload("res://popups/FloatingText.tscn")
-var Fireball = preload("res://weapons/Fireball.tscn")
+var Fireball = preload("res://weapons/fireball/Fireball.tscn")
 var ExplosionPool = preload("res://weapons/ExplosionPool.tscn")
 var LevelUp = preload("res://popups/LevelUp.tscn")
 
 onready var  animation_mode = $AnimationTree.get("parameters/playback")
+
+export(Array, Resource) var weapons
 
 const speed : int = 80
 
@@ -64,7 +66,8 @@ func _physics_process(_delta):
 
 func _on_ShootTimer_timeout():
 	if !Global.Pause:
-		shoot()
+		for weapon in weapons:
+			weapon.shoot(self, $EnemyDetectionArea)
 
 func shoot() -> void:
 	var enemy = Global.get_closest_body(self, $EnemyDetectionArea)
@@ -85,6 +88,8 @@ func level_up() -> void:
 	expToNextLevel += expToNextLevel * 0.3
 	Global.Exp = 0
 	level += 1
+	for weapon in weapons:
+		weapon.level_up()
 
 func get_hit_by(hitter: Node, damage: int) -> void:
 	var dmg : int = damage - (armor * armorMod)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/sprites/sprite_sheet.png" type="Texture" id=1]
 [ext_resource path="res://characters/Player.gd" type="Script" id=2]
+[ext_resource path="res://weapons/fireball/Fireball.tres" type="Resource" id=3]
 
 [sub_resource type="CircleShape2D" id=28]
 radius = 34.0147
@@ -327,6 +328,7 @@ start_node = "Idle"
 collision_layer = 5
 collision_mask = 5
 script = ExtResource( 2 )
+weapons = [ ExtResource( 3 ) ]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

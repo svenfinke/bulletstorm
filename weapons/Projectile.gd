@@ -3,8 +3,13 @@ class_name Projectile
 
 var velocity = Vector2(1,0)
 var speed = 100
+var dmg : int = 4
 
 export var look_once = true
+
+func do_upgrade(upgrade: WeaponUpgradeResource) -> void:
+	dmg += upgrade.dmgInc
+	pass
 
 func _ready():
 	if Global.SoundEnabled:
@@ -23,7 +28,7 @@ func _physics_process(delta):
 	
 	var collider = move_and_collide(velocity.rotated(rotation) * speed * delta)
 	if collider && collider.get_collider().has_method('get_hit_by'):
-		collider.get_collider().get_hit_by(self, 4 * Global.Player.level)
+		collider.get_collider().get_hit_by(self, dmg)
 		_self_destroy()
 
 func _on_VisibilityNotifier2D_screen_exited():
