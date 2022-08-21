@@ -38,6 +38,16 @@ _global_script_classes=[ {
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://weapons/Projectile.gd"
+}, {
+"base": "Resource",
+"class": "WeaponResource",
+"language": "GDScript",
+"path": "res://weapons/WeaponResource.gd"
+}, {
+"base": "Resource",
+"class": "WeaponUpgradeResource",
+"language": "GDScript",
+"path": "res://weapons/WeaponUpgradeResource.gd"
 } ]
 _global_script_class_icons={
 "Aoe": "",
@@ -45,7 +55,9 @@ _global_script_class_icons={
 "GutHookScript": "",
 "GutTest": "",
 "Player": "",
-"Projectile": ""
+"Projectile": "",
+"WeaponResource": "",
+"WeaponUpgradeResource": ""
 }
 
 [application]

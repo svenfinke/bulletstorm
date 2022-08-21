@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var FloatingText = preload("res://popups/FloatingText.tscn")
 
-export (int) var amount : int = 5
+export (int) var amount : int = 20
 export(bool) var attracted : bool = false
 
 export (int) var speed : int = 150
